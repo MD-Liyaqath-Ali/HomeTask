@@ -1,8 +1,12 @@
-function rentalCarCost(d) {
-  if(d>=7)
-    return ((d*40)-50);
-  else if(d>=3)
-    return ((d*40)-20);
+// https://www.codewars.com/kata/transportation-on-vacation
+
+function rentalCarCost(days) {
+  let costPerDay = 40;
+  let totalCost = costPerDay * days;
+  if(days>=7)
+    return (totalCost-50);
+  else if(days>=3)
+    return (totalCost-20);
   else
-    return (d*40);
+    return totalCost;
 }
