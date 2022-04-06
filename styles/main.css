@@ -3,7 +3,7 @@
     padding: 0;
 }
 .foot{
-    background-color: rgb(78, 24, 78);
+    background-color: rgb(86, 29, 86);
     color: white;
     display: flex;
     justify-content: center;
@@ -14,7 +14,7 @@
 body{
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.headcon{
+.headCon{
     background-color: white;
     color: black;
     border: 1.5px solid red;
@@ -22,13 +22,13 @@ body{
     margin-top: 12px;
     margin-bottom: 12px;
 }
-#bigt{
+#bigText{
     font-size: 150%;
     margin-left: 25px;
     font-weight: bold;
     margin-right: 10px;
 }
-#smallt{
+#smallText{
     font-size: 65%;
     margin-left: 50px;
     font-weight: 500;
@@ -38,19 +38,19 @@ body{
     padding: 3% 3%;    
 }
 
-#leftbox {
+#leftBox {
     float:left; 
     background:white;
     width:25%;
     height: 85px;
 }
-#middlebox{
+#middleBox{
     float:left; 
     background:white;
     width:50%;
     height:85px;
 }
-#rightbox{
+#rightBox{
     float:right;
     background:white;
     width:25%;
@@ -64,9 +64,9 @@ textarea{
     color: black;
     border: 1px solid black;
 }
-#allnews{
+#allNews{
     text-align: center;
-    margin-top: 7%;
+    margin-top: 5%;
 }
 select{
     margin-top: 4%;
@@ -74,12 +74,12 @@ select{
     height: 40%;
 
 }
-#main_search {
+#mainSearch {
     float: right;
     line-height: 60px;
     margin: 0 50px 0 0;
 }
-#main_search_input {
+#mainSearchInput {
     resize: none;
     margin-top: 4%;
     border-radius: 0%;
@@ -92,7 +92,7 @@ select{
     padding: 5px 10px 5px 10px !important;
     width: 30%;
 }
-#search_button {
+#searchButton {
     background-color: black;
     color: white;
     margin-top: 4%;
@@ -102,18 +102,18 @@ select{
     border: 1px solid black;
     font-size: 7px;
 }
-#search_button:hover{
+#searchButton:hover{
     background-color: yellow;
     color: black;
     cursor: pointer;
 }
-.classhr{
+.classHr{
     background: black;
     height: 1px;
     
 
 }
-.paraone{
+.paraOne{
     margin-top: 2%;
     background-color: white;
     height: 140px;
@@ -125,16 +125,16 @@ img{
     float: left;
 
 }
-.imgsidediv{
+.imgSideDiv{
     margin-left: 2%;
     float:left;
     width: 80%;
     height: 100px;
 }
-.conred{
+.conRed{
     border-radius: 0%;
-    border: 1px solid red;
-    background: red;
+    border: 1px solid rgb(7, 158, 7);
+    background: rgb(7, 158, 7);
     color: white;
     height: 25%;
     margin-top: 10px;
@@ -142,81 +142,85 @@ img{
     padding-top: 2px;
     padding-bottom: 2px;
 }
-.conred:hover{
+.conRed:hover{
     background-color: yellow;
     color: black;
     cursor: pointer;
 }
-.postedoncat{
+.postedOnCat{
     color: red;
 }
 footer{
     margin-top: 10px;
 }
 @media only screen and (max-width : 803px) {
-    .imgsidediv{
+    .imgSideDiv{
         font-size: 10px;
     }
-    .conred{
+    .conRed{
         width: 10%;    
         font-size: 7px;
     }
-    #main_search_input{
+    #mainSearchInput{
         width: 60px;
         font-size: 9px;
     }
-    .paraone{
+    .paraOne{
         height: 90px;
     }
-    #allnews{
+    #allNews{
         font-size: 18px;
     }
   }
   @media only screen and (max-width : 700px) {
-    .imgsidediv{
+    .imgSideDiv{
         font-size: 7px;
         height: 70px;
     }
-    .conred{
+    .conRed{
         width: 8%;    
         height: 10%;
         font-size: 3px;
         margin-top: 4px;
     }
-    #main_search_input{
+    #mainSearchInput{
         height: 8px;
         width: 30px;
         font-size: 4.5px;
     }
-    #search_button{
+    #searchButton{
         height: 20px;
         width: 30px;
         font-size: 4px;
     }
-    .sus{
+    .suscribe{
         font-size: 8px;
     }
-    .dropdown{
+    .selectCategory{
+        font-size: 8px;
+    }
+
+    .dropDown{
         height: 15px;
         width: 75px;
         font-size: 10px;
     }
-    .paraone{
+    .paraOne{
         margin-top: 1%;
         height: 60px;
     }
-    #allnews{
+    #allNews{
+        margin-top: 30px;
         font-size: 9px;
     }
-    #leftbox,#middlebox,#rightbox{
+    #leftBox,#middleBox,#rightBox{
     height: 50px;
     }
-   
-    #bigt{
+    #bigText{
         font-size: 12px;
         margin-left: 12px;
     }
-    #smallt{
+    #smallText{
         font-size: 5px;
         margin-left: 25px;
     }
