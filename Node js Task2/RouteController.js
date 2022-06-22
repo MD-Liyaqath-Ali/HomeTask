@@ -14,10 +14,10 @@ const getUserById = (req, res) => {
         res.send(users[position]);
     } else {
         res.statusCode = 404;
-        res.send({ message: "Unable to find the user" });
+        res.send({ message: "unable to find the user"});
     }
 };
-const UpdateUser = (req, res) => {
+const updateUser = (req, res) => {
     const id = req.params.id;
     const data = req.body;
     const position = users.findIndex((user) => user.id === id);
@@ -26,7 +26,7 @@ const UpdateUser = (req, res) => {
         if (result.error == undefined) {
             users[position] = data;
             res.statusCode = 200;
-            res.send({ message: "Successfully Updated User's data" });
+            res.send({ message: "successfully updated user's data" });
         }
         else {
             res.statusCode = 404;
@@ -35,7 +35,7 @@ const UpdateUser = (req, res) => {
         }
     } else {
         res.statusCode = 404;
-        res.send({ message: "Unable to find the user" });
+        res.send({ message: "unable to find the user" });
     }
 };
 const getAutoSuggestUsers = (req,res)=>{
@@ -45,7 +45,7 @@ const getAutoSuggestUsers = (req,res)=>{
     const SortedUsers = users.sort((a,b) => a.login.localeCompare(b.login));
     const suggestedUsers = (SortedUsers.filter(user => user.login.indexOf(loginSubstring) != -1)).slice(0,limit);
     res.statusCode = 200;
-    res.send({message:"The Suggested Users",Users:suggestedUsers});
+    res.send({message:"suggested users",Users:suggestedUsers});
 };
 const deleteUser = (req, res) => {
     const id = req.params.id;
@@ -54,10 +54,10 @@ const deleteUser = (req, res) => {
     if (position != -1) {
         userToBeDeleted.isDeleted = true;
         res.statusCode = 200;
-        res.send({ message: "Successfully Deleted a User's data" });
+        res.send({ message: "successfully deleted a user's data" });
     } else {
         res.statusCode = 404;
-        res.send({ message: "Unable to find the user to delete OR Alread the user is set to be Deleted" });
+        res.send({ message: "user not found"});
     }
 };
 const createUser = (req, res) => {
@@ -67,7 +67,7 @@ const createUser = (req, res) => {
         const result = validateUser(data);
         if (result.error == undefined) {
             users.push(data);
-            res.send({ message: "Sucessfully created a user" })
+            res.send({ message: "sucessfully created a user" })
         }
         else {
             res.statusCode = 404;
@@ -76,12 +76,12 @@ const createUser = (req, res) => {
         }
     }
     else {
-        res.send({ message: "User with this id already exists" });
+        res.send({ message: "user with this id already exists" });
     }
 };
 const wrongUrlEntered = (req, res) => {
     res.statusCode = 404;
-    res.json(`Could not find resource - ${req.originalUrl}`);
+    res.json(`could not find resource - ${req.originalUrl}`);
 
 }
 function validateUser(user) {
@@ -98,7 +98,7 @@ function validateUser(user) {
 router.use('/getAutoSuggestUsers/:loginSubstring/:limit',getAutoSuggestUsers);
 router.use("/getUsers", getUsers);
 router.use("/getUser/:id", getUserById);
-router.use("/updateUser/:id", UpdateUser);
+router.use("/updateUser/:id", updateUser);
 router.use("/deleteUser/:id", deleteUser);
 router.use("/createUser", createUser);
 router.use("/*", wrongUrlEntered);
