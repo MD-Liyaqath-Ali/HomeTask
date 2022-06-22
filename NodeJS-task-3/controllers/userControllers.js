@@ -1,11 +1,12 @@
 const userService = require("../services/userServices");
 
 //get all users from db with help of services
-exports.getUsers = async (req, res) => {                    
+exports.getUsers = async (req, res) => {                   
     let list = [];
-    list = await userService.getUsersFromDB();            
+    list = await userService.getUsersFromDB();          
     const loginSubstring = '', limit = 10;
     list.filter(user => user.login.includes(loginSubstring.toString()) && !user.isDeleted) 
+        .sort((a, b) => a.login.localeCompare(b.login))
         .slice(0, Number(limit));
     res.send(list);
 }
@@ -34,9 +35,9 @@ exports.saveUser = async (req, res) => {
     console.log(id);
     const isdeleted = false;
     try {
-        let record = await userService.saveUserInDB(id, login, age, password, isdeleted);
-        if (record == null) {
-            throw Error("Already data is existing with same Id");
+        let ret = await userService.saveUserInDB(id, login, age, password, isdeleted);
+        if (ret == null) {
+            throw Error("Already data is existing with same id");
         }
         res.send("Data inserted successfully ! !");
     }
@@ -48,7 +49,7 @@ exports.saveUser = async (req, res) => {
 //update user by id in db with help of services
 exports.updateUser = async (req, res) => {
     const id = req.params.id;
-    const { login, password, age } = req.body;            
+    const { login, password, age } = req.body;            //Imp - destructuring
     const userToUpdate = await userService.getUserById(id);
     if (!userToUpdate) {
         res.send('User not found');
@@ -62,7 +63,7 @@ exports.updateUser = async (req, res) => {
     }
 }
 
-//delete user by id from db using services
+//dalete user by id from db using services
 exports.deleteUser = async (req, res) => {
     const id = req.params.id;
     const userToDelete = await userService.getUserById(id);

@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "set PORT=5000 && nodemon app.js"
+    "start": "set PORT=3500 && nodemon app.js"
   },
-  "author": "MD Liyaqath Ali",
+  "author": "loki",
   "license": "ISC",
   "dependencies": {
     "@hapi/hapi": "^20.2.2",

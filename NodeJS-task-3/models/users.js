@@ -1,6 +1,6 @@
 const joi = require("@hapi/joi");
 
-const userSchema = joi.object({                            //validation of schema using joi validation
+const userSchema = joi.object({                     
     id: joi.string().required(),
     login: joi.string().required().alphanum(),
     password: joi.string().required().alphanum().min(6),
