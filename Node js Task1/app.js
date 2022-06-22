@@ -68,6 +68,6 @@ function Execute() {
                 break;
             }
         default:
-            console.log("Invalid Search");
+            console.log("invalid operation");
     }
 }
