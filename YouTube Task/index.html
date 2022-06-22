@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube.com</title>
+    <link rel="stylesheet" href="Styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+
+<body>
+    <div id="load"></div> <br>
+    <div class="container"></div>
+
+    <head>
+        <img src="Images/logo.png" class="youtube-logo" alt="">
+    </head>
+    <div class="search-box">
+        <form class="example" id="form">
+            <input id="search" type="text" placeholder="Search" id="search">
+            <button id="search-btn" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <div class="row">
+        <div id="videos">
+        </div>
+        <div id="videoDetails">
+        </div>
+    </div>
+    <div class="pagination-block" id="pagination-block">
+        <span class="pageButton outline-none" id="button_prev">Prev</span>
+        <span id="page_number" class="outline-none"></span>
+        <span class="pageButton outline-none" id="button_next">Next</span>
+    </div>
+    </div>
+</body>
+<script id="script" src="JavaScript/main.js"></script>
+
+</html>
