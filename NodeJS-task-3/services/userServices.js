@@ -16,36 +16,36 @@ exports.userValidator = (schema) => {
 //get all users from db
 exports.getUsersFromDB = async () => {
   try {
-    let data = await users.findAll();
-    console.log(data);
-    return data;
+    return await users.findAll();
   }
-  catch (e) {
-    console.log(e.message);
+  catch (err) {
+    console.log(err.message);
+    throw err;
   }
 }
 
 //get user by id from db
 exports.getUserById = async (id) => {
   try {
-    let user = await users.findByPk(id);
-    return user;
+    return await users.findByPk(id);
   }
-  catch (e) {
-    console.log(e.message);
+  catch(err) {
+    console.log(err.message);
+    throw err;
   }
 }
 
 //save user data in db
 exports.saveUserInDB = async (id, login, age, password, isdeleted) => {
   try {
-    let res = await users.bulkCreate([                  //create doubt
+    let res = await users.bulkCreate([                 
       { id: id, login: login, age: age, password: password, isdeleted: isdeleted },
     ]);
     return res;
   }
-  catch (e) {
-    return null;
+  catch (err) {
+    console.log(err.message);
+    throw err;
   }
 }
 
@@ -58,18 +58,19 @@ exports.updateUserInDB = async (id, login, password, age) => {
     );
     return res;
   }
-  catch (e) {
-    console.log(e.message);
+  catch (err) {
+    console.log(err.message);
+    throw err;
   }
 }
 
 //delete user by id from db
 exports.deleteUserFromDB = async (id) => {
   try {
-    let res = await users.destroy({ where: { id: id } });
-    return res;
+    return await users.destroy({ where: { id: id } });
   }
-  catch (e) {
-    console.log(e.message);
+  catch (err) {
+    console.log(err.message);
+    throw err;
   }
 }

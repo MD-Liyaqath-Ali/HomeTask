@@ -17,15 +17,16 @@ exports.getUsersById = async (req, res) => {
     let userToFind;
     try {                                             
         userToFind = await userService.getUserById(id);
-        if (!userToFind) {
-            res.status(404).send('User not found');
-        }
-        else {
-            res.send(userToFind);
-        }
+        res.send(userToFind)
+        if (!userToFind){ 
+            res.status(404)
+            res.send('User not found');
+        }else{res.send(userToFind);}
     }
     catch (err) {
         console.log(err.message);
+        res.statusCode = 404;
+        throw err;
     }
 }
 
@@ -35,48 +36,46 @@ exports.saveUser = async (req, res) => {
     console.log(id);
     const isdeleted = false;
     try {
-        let ret = await userService.saveUserInDB(id, login, age, password, isdeleted);
-        if (ret == null) {
-            throw Error("Already data is existing with same id");
-        }
-        res.send("Data inserted successfully ! !");
+        await userService.saveUserInDB(id, login, age, password, isdeleted);
+        res.send("Data inserted successfully");
     }
     catch (err) {
-        res.send("Already data is existing with same Id");
+        res.send("Already data is existing with same id");
+        res.statusCode = 404;
     }
 }
 
 //update user by id in db with help of services
 exports.updateUser = async (req, res) => {
     const id = req.params.id;
-    const { login, password, age } = req.body;            //Imp - destructuring
+    const { login, password, age } = req.body;            
     const userToUpdate = await userService.getUserById(id);
-    if (!userToUpdate) {
-        res.send('User not found');
-    }
-    console.log(id);
-    try {
-        const result = await userService.updateUserInDB(id, login, password, age);
-        res.send("updated successfully ! !");
-    } catch (err) {
+    if(!userToUpdate){res.send('User not found')};
+    try{
+        await userService.updateUserInDB(id, login, password, age);
+        res.send("updated successfully");
+    }catch (err) {
         res.send(err.message);
+        res.statusCode = 404;
     }
 }
-
-//dalete user by id from db using services
+//delete user by id from db using services
 exports.deleteUser = async (req, res) => {
     const id = req.params.id;
     const userToDelete = await userService.getUserById(id);
-    if (!userToDelete || userToDelete.isDeleted) {
-        res.send('User not found');
+    if(!userToDelete||userToDelete.isDeleted)res.send('User not found');else{
+    try {
+        await userService.deleteUserFromDB(id)
+        res.send("Succesfully deleted!");
     }
-    else {
-        try {
-            const count = await userService.deleteUserFromDB(id)
-            res.send("Succesfully deleted ! !");
-        }
-        catch (err) {
-            res.send(err.message);
-        }
+    catch (err) {
+        res.send(err.message);
+        res.statusCode = 404;
     }
+    }
+}
+exports.invalidUrlEncontered = (req, res) => {
+    res.statusCode = 404;
+    res.json(`could not find resource - ${req.originalUrl}`);
+
 }
