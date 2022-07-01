@@ -1,0 +1,41 @@
+
+.main-list{
+    margin-top:5%;
+    width: 100%;
+    display: flex;
+}
+.active{
+   position: relative;
+   width:100vw;
+   
+    padding: 10px;
+    border: 1px solid green;
+    margin-top:1%;
+
+   
+
+}
+
+.btn{
+    width: 50%;
+    margin-left: auto;
+    
+   
+    
+}
+.inact{
+    position: relative;
+    width:100vw;
+    
+     padding: 10px;
+     border: 1px solid red;
+     margin-top:1%;
+}
+.not_act{color: red;}
+.act{color:green}
+.details{
+    margin-top:6% ;
+    border: 1px solid black;
+    padding: 5%;
+
+}

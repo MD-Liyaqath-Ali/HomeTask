@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 md-6">
+            <div *ngFor="let users of userList" class="main-list">
+                <div class="" [className]="users.isDeleted == false?'active':'inact'">
+                    <div>
+                        <h5 class="card-title">{{users.id}}</h5>
+                    </div>
+                    <div class="btn d-flex flex-column-reverse">
+                        <a class="btn btn-primary" (click)="onSelect(users)">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 md-6">
+            <div *ngIf="selectedUser" class="details">
+                <h2>{{selectedUser.id}}</h2>
+                <div [className]="selectedUser.isDeleted==false?'act':'not_act'"> {{selectedUser.isDeleted == false?
+                    'Active':'Deleted'}}</div>
+                <div>Id: {{selectedUser.id}}</div>
+                <div>First Name :{{selectedUser.firstName}}</div>
+                <div>Last Name :{{selectedUser.lastName}}</div>
+                <div>Age :{{selectedUser.age}}</div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<router-outlet></router-outlet>
