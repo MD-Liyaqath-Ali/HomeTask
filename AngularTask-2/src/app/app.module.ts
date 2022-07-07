@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ActivatedModule} from './activated/activated.module'
-import { DeletedModule } from './deleted/deleted.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
+import { ActiveModule } from './modules/active/active.module';
+import { ComponentsModule } from './components/components.module';
+import { DeletedModule } from './modules/deleted/deleted.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +16,9 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ActivatedModule,
+    ActiveModule,
     DeletedModule,
-    NgbModule
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
