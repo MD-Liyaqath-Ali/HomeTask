@@ -6,7 +6,8 @@ h1{
 p{
     font-weight: lighter;
 }
-.class1{
+
+.jumbotron{
     background-color: #e9ecef;
-    padding: 5%;
+    padding: 3%;
 }
