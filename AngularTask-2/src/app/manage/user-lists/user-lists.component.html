@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-6 md-6">
             <div *ngFor="let users of userList" class="main-list">
-                <div class="" [className]="users.isDeleted == false?'active':'inact'">
+                <div [ngClass]="users.isDeleted == false?'active':'inact'">
                     <div>
                         <h5 class="card-title">{{users.id}}</h5>
                     </div>

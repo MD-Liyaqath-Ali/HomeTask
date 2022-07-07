@@ -7,9 +7,7 @@ const routes: Routes = [
     path:'userlist',
     component:UserListsComponent
   }
-
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
