@@ -1,0 +1,12 @@
+<div class="container">
+    <div *ngFor="let users of userList" class="main-list">
+        <div [ngClass]="users.isDeleted == false?'active':'inact'">
+            <div>
+                <h5 class="card-title">{{users.id}}</h5>
+            </div>
+            <div class="btn d-flex flex-column-reverse">
+                <a class="btn btn-danger">Deactivate</a>
+            </div>
+        </div>
+    </div>
+</div>
