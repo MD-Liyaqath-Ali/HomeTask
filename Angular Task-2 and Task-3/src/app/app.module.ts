@@ -8,10 +8,11 @@ import { ActiveModule } from './modules/active/active.module';
 import { ComponentsModule } from './components/components.module';
 import { DeletedModule } from './modules/deleted/deleted.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
